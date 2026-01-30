@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dream-app-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: dream-app-backend
+  template:
+    metadata:
+      labels:
+        app: dream-app-backend
+    spec:
+      containers:
+        - name: dream-app-backend
+          image: dillax/dream-backend:8f0d866120ac1a939e30dbf8491d07b576dcdd2d
+          ports:
+            - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dream-backend-service
+spec:
+  selector:
+    app: next-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+  type: ClusterIP
+
+---
+
