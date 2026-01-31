@@ -17,8 +17,27 @@ spec:
           image: dillax/dream-backend:37df9597b2e7f88a25f7d86b202584f6520d1fb5
           ports:
             - containerPort: 3000
----
+          env:
+        - name: DB_HOST
+          value: postgres
+        - name: DB_PORT
+          value: "5432"
+        - name: DB_USER
+          valueFrom:
+            secretKeyRef:
+              name: postgres-secret
+              key: POSTGRES_USER
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: postgres-secret
+              key: POSTGRES_PASSWORD
+        - name: DB_NAME
+          valueFrom:
+            secretKeyRef:
+              name: postgres-secret
+              key: POSTGRES_DB
 
-
+    
 ---
 
