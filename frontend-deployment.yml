@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dream-app-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dream-app-frontend
+  template:
+    metadata:
+      labels:
+        app: dream-app-frontend
+    spec:
+      containers:
+        - name: dream-app-frontend
+          image: dillax/dream-frontend:12542018f01b9a6c9ea8603d5507b6950cc9870a
+          ports:
+            - containerPort: 80
+          
