@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: dream-app-backend
-          image: dillax/dream-backend:37df9597b2e7f88a25f7d86b202584f6520d1fb5
+          image: dillax/dream-backend:4025f74ef84299eecd088db24418b9f9d802870a
           ports:
             - containerPort: 3000
           env:
