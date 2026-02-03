@@ -2,12 +2,14 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: dream-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
 spec:
+  ingressClassName: nginx
   rules:
     - host: dream.dillaxadhi.com
       http:
         paths:
-          # Frontend
           - path: /
             pathType: Prefix
             backend:
@@ -15,8 +17,6 @@ spec:
                 name: dream-frontend-service
                 port:
                   number: 80
-
-          # Backend API
           - path: /api
             pathType: Prefix
             backend:
