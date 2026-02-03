@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: dream-ingress
+spec:
+  rules:
+    - host: dream.dillaxadhi.com
+      http:
+        paths:
+          # Frontend
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: dream-frontend-service
+                port:
+                  number: 80
+
+          # Backend API
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: dream-backend-service
+                port:
+                  number: 80
