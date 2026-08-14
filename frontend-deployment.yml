@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: dream-app-frontend
-          image: dillax/dream-frontend:3d34048a2d554cc7a685ee341648b47917811623
+          image: dillax/dream-frontend:09fcca3c13260c384d37f6244a4351ed1a6050ee
           ports:
             - containerPort: 80
           
